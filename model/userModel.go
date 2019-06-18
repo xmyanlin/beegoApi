@@ -19,14 +19,14 @@ func (u *UserModel) TableName() string {
 
 func (usr *UserModel) Insert() error{
 	usr.Phone = "129379"
-	if _,err:=orm.NewOrm().Insert(usr);err != nil{
+	if _,err:=Select("default").Insert(usr);err != nil{
 		return err
 	}
 	return  nil
 }
 
 func (usr *UserModel) Read(fields ...string) error {
-	if err := orm.NewOrm().Read(usr); err != nil {
+	if err := orm.NewOrm().Read(usr, fields...); err != nil {
 		return err
 	}
 	return nil

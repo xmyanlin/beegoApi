@@ -29,3 +29,10 @@ func init(){
 
 	orm.RegisterModel(new(UserModel))
 }
+
+func Select(str string) orm.Ormer{
+	o := orm.NewOrm()
+	o.Using(str)
+
+	return o
+}
